@@ -15,7 +15,7 @@ namespace PasswordStrengthChecker.Controllers
     [ApiController]
     public class PasswordCheckerController : ControllerBase
     {
-        public PasswordRank PasswordRank { get; private set; }
+        public PasswordRank PwdRank { get; private set; }
         public IConfiguration IConfig { get; }
 
         /// <summary>
@@ -35,18 +35,18 @@ namespace PasswordStrengthChecker.Controllers
         [HttpGet("CheckStrength/{password}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<PasswordRank> CheckStrength(string password)
+        public ActionResult<string> CheckStrength(string password)
         {
             try
             {
                 IPasswordChecker objPasswordChecker = new PasswordChecker();
-                PasswordRank = objPasswordChecker.CheckStrength(password);
+                PwdRank = objPasswordChecker.CheckStrength(password);
             }
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
             }
-            return PasswordRank;
+            return PwdRank.ToString();
         }
         /// <summary>
         /// Checks if the provided password appears in any databreaches (asynchronously) and returns the number of times it is found.
@@ -65,7 +65,7 @@ namespace PasswordStrengthChecker.Controllers
                 DataBreachCount = await objDataBreachChecker.CheckIfPasswordPwned(password);
             }
             catch (Exception ex)
-            {
+            {                
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
             }
             return DataBreachCount;
