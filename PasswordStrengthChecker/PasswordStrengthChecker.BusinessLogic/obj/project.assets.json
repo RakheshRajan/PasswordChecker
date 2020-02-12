@@ -3444,11 +3444,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\PasswordStrengthChecker\\PasswordStrengthChecker.BusinessLogic\\PasswordStrengthChecker.BusinessLogic.csproj",
+      "projectUniqueName": "G:\\Rakhesh\\Projects\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.BusinessLogic\\PasswordStrengthChecker.BusinessLogic.csproj",
       "projectName": "PasswordStrengthChecker.BusinessLogic",
-      "projectPath": "C:\\Users\\User\\source\\repos\\PasswordStrengthChecker\\PasswordStrengthChecker.BusinessLogic\\PasswordStrengthChecker.BusinessLogic.csproj",
+      "projectPath": "G:\\Rakhesh\\Projects\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.BusinessLogic\\PasswordStrengthChecker.BusinessLogic.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\PasswordStrengthChecker\\PasswordStrengthChecker.BusinessLogic\\obj\\",
+      "outputPath": "G:\\Rakhesh\\Projects\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.BusinessLogic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
