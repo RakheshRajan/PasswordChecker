@@ -73,15 +73,9 @@ namespace PasswordStrengthChecker.BusinessLogic
             return DataBreachCount;
         }
 
-        private async Task<Response> GETRequestAsync(string parameters)
+        private async Task<WebResponse> GETRequestAsync(string parameters, string overrideURL)
         {
-            Response response = await GETRequestAsync(parameters, ExternalApiURL);
-            return response;
-        }
-
-        private async Task<Response> GETRequestAsync(string parameters, string overrideURL)
-        {
-            Response RestResponse = new Response();
+            WebResponse apiResponse = new WebResponse();
             Uri uri = new Uri($"{overrideURL}/{parameters}");
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, uri);
@@ -98,17 +92,17 @@ namespace PasswordStrengthChecker.BusinessLogic
                 string responseBody = await response.Content.ReadAsStringAsync();
                 string statusCode = response.StatusCode.ToString();
 
-                RestResponse.Body = responseBody;
-                RestResponse.StatusCode = statusCode;
+                apiResponse.Body = responseBody;
+                apiResponse.StatusCode = statusCode;
 
-                return RestResponse;
+                return apiResponse;
             }
             catch (HttpRequestException e)
             {
-                RestResponse.Body = null;
-                if (response != null) RestResponse.StatusCode = response.StatusCode.ToString();
-                RestResponse.HttpException = e.Message;
-                return RestResponse;
+                apiResponse.Body = null;
+                if (response != null) apiResponse.StatusCode = response.StatusCode.ToString();
+                apiResponse.HttpException = e.Message;
+                return apiResponse;
             }
         }
 

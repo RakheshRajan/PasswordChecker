@@ -7,6 +7,11 @@ namespace PasswordStrengthChecker.BusinessLogic
 {
     public class PasswordChecker : IPasswordChecker
     {
+        /// <summary>
+        /// Check the strength of the password by a basic scoring logic.
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public PasswordRank CheckStrength(string password)
         {
             int score = 0;
@@ -16,18 +21,23 @@ namespace PasswordStrengthChecker.BusinessLogic
             if (password.Length < 4)
                 return PasswordRank.VeryWeak;
 
+            //If the password length greater than 12
             if (password.Length >= 8)
                 score++;
+
+            //If the password length greater than 12
             if (password.Length >= 12)
                 score++;
 
+            //If password contains digits
             if (Regex.Match(password, @"\d+", RegexOptions.ECMAScript).Success)
                 score++;
 
+            //If password contains lower & upper characters
             if (Regex.Match(password, @"[a-z]", RegexOptions.ECMAScript).Success &&
               Regex.Match(password, @"[A-Z]", RegexOptions.ECMAScript).Success)
                 score++;
-
+            //If password contains special characters
             if (Regex.Match(password, @".[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]", RegexOptions.ECMAScript).Success)
                 score++;
 
