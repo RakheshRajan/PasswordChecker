@@ -18,16 +18,8 @@ namespace PasswordStrengthChecker.BusinessLogic
 
             if (password.Length < 1)
                 return PasswordRank.Blank;
-            if (password.Length < 4)
+            if (password.Length <= 7)
                 return PasswordRank.VeryWeak;
-
-            //If the password length greater than 12
-            if (password.Length >= 8)
-                score++;
-
-            //If the password length greater than 12
-            if (password.Length >= 12)
-                score++;
 
             //If password contains digits
             if (Regex.Match(password, @"\d+", RegexOptions.ECMAScript).Success)
@@ -40,6 +32,17 @@ namespace PasswordStrengthChecker.BusinessLogic
             //If password contains special characters
             if (Regex.Match(password, @".[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]", RegexOptions.ECMAScript).Success)
                 score++;
+
+            //If the password length greater than 8
+            if (password.Length >= 8)
+                score++;
+
+            //If the password length greater than 12
+            if (password.Length >= 12)
+                score++;
+            //Password doesnot contain any complex combinations
+            if(score==0)
+                return PasswordRank.VeryWeak;
 
             return (PasswordRank)score;
         }

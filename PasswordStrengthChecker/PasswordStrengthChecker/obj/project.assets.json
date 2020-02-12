@@ -11825,11 +11825,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Rakhesh\\Projects\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.csproj",
+      "projectUniqueName": "G:\\Rakhesh\\Projects\\test\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.csproj",
       "projectName": "PasswordStrengthChecker",
-      "projectPath": "G:\\Rakhesh\\Projects\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.csproj",
+      "projectPath": "G:\\Rakhesh\\Projects\\test\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "G:\\Rakhesh\\Projects\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker\\obj\\",
+      "outputPath": "G:\\Rakhesh\\Projects\\test\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -11850,8 +11850,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "G:\\Rakhesh\\Projects\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.BusinessLogic\\PasswordStrengthChecker.BusinessLogic.csproj": {
-              "projectPath": "G:\\Rakhesh\\Projects\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.BusinessLogic\\PasswordStrengthChecker.BusinessLogic.csproj"
+            "G:\\Rakhesh\\Projects\\test\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.BusinessLogic\\PasswordStrengthChecker.BusinessLogic.csproj": {
+              "projectPath": "G:\\Rakhesh\\Projects\\test\\PasswordChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.BusinessLogic\\PasswordStrengthChecker.BusinessLogic.csproj"
             }
           }
         }
