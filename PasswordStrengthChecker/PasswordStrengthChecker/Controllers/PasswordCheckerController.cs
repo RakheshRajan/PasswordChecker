@@ -17,6 +17,7 @@ namespace PasswordStrengthChecker.Controllers
     {
         public PasswordRank PwdRank { get; private set; }
         public IConfiguration IConfig { get; }
+        PasswordStringValidations passwordChecker;
 
         /// <summary>
         /// Initialise configuration object - Dependency Injection
@@ -25,6 +26,9 @@ namespace PasswordStrengthChecker.Controllers
         public PasswordCheckerController(IConfiguration iConfig)
         {
             IConfig = iConfig;
+            passwordChecker = new PasswordStringValidations();
+            PasswordExternalValidations passwordExternalValidations = new PasswordExternalValidations();
+            passwordChecker.SetNext(passwordExternalValidations);
         }
         /// <summary>
         /// Checks the strength of the password. Method returns an enum with values indicating the strength.
@@ -39,11 +43,14 @@ namespace PasswordStrengthChecker.Controllers
         {
             try
             {
-                IPasswordChecker objPasswordChecker = new PasswordChecker();
-                PwdRank = objPasswordChecker.CheckStrength(password);
+                int score = 0;
+                passwordChecker = new PasswordStringValidations();
+                score = passwordChecker.CheckStrength(password);
+                PwdRank = (PasswordRank)score;
             }
             catch (Exception ex)
             {
+                //Log exceptions here
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
             }
             return PwdRank.ToString();
@@ -65,7 +72,8 @@ namespace PasswordStrengthChecker.Controllers
                 DataBreachCount = await objDataBreachChecker.CheckIfPasswordPwned(password);
             }
             catch (Exception ex)
-            {                
+            {
+                //Log exceptions here
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
             }
             return DataBreachCount;

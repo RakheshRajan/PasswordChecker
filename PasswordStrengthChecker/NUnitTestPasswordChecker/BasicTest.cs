@@ -8,9 +8,10 @@ namespace Tests
 {
     public class Tests
     {
-        IPasswordChecker objPasswordChecker;
+        IPasswordCheckerHandler objPasswordChecker;
         IPasswordBreachChecker objDataBreachChecker;
         PasswordRank pRank;
+        int score = 0;
 
         private readonly string PWNEDApiURL = "https://haveibeenpwned.com/api/v3";
         private readonly string RangeApiURL = "https://api.pwnedpasswords.com";
@@ -20,7 +21,7 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            objPasswordChecker = new PasswordChecker();
+            objPasswordChecker = new PasswordStringValidations();
             objDataBreachChecker = new DataBreachChecker(PWNEDApiURL,UserAgent, HIBPApiKey, RangeApiURL);
         }
         /// <summary>
@@ -29,7 +30,11 @@ namespace Tests
         [Test]
         public void Test1()
         {
-            pRank = objPasswordChecker.CheckStrength("1");
+
+            score = objPasswordChecker.CheckStrength("1");
+
+            pRank = (PasswordRank)score;
+
             if (pRank == PasswordRank.VeryWeak)
             {
                 Assert.Pass();
@@ -45,7 +50,8 @@ namespace Tests
         [Test]
         public void Test2()
         {
-            pRank = objPasswordChecker.CheckStrength("Password$3");
+            score = objPasswordChecker.CheckStrength("Password$3");
+            pRank = (PasswordRank)score;
             if (pRank == PasswordRank.Strong)
             {
                 Assert.Pass();
@@ -61,7 +67,8 @@ namespace Tests
         [Test]
         public void Test3()
         {
-            pRank = objPasswordChecker.CheckStrength("Password12$3");
+            score = objPasswordChecker.CheckStrength("Password12$3");
+            pRank = (PasswordRank)score;
             if (pRank == PasswordRank.VeryStrong)
             {
                 Assert.Pass();

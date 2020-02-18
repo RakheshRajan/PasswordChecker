@@ -1,25 +1,25 @@
-﻿using PasswordStrengthChecker.BusinessLogic.Interface;
-using PasswordStrengthChecker.BusinessLogic.Model;
+﻿using PasswordStrengthChecker.BusinessLogic.Model;
+using PasswordStrengthChecker.BusinessLogic.Interface;
 using System;
 using System.Text.RegularExpressions;
 
 namespace PasswordStrengthChecker.BusinessLogic
 {
-    public class PasswordChecker : IPasswordChecker
+    public class PasswordStringValidations : AbstractHandler
     {
         /// <summary>
         /// Check the strength of the password by a basic scoring logic.
         /// </summary>
         /// <param name="password"></param>
         /// <returns></returns>
-        public PasswordRank CheckStrength(string password)
-        {
-            int score = 0;
+        public override int CheckStrength(string password, int score = 0)
+        {                                        
+            //int score = 0;
 
             if (password.Length < 1)
-                return PasswordRank.Blank;
+                return 0;
             if (password.Length <= 7)
-                return PasswordRank.VeryWeak;
+                return 1;
 
             //If password contains digits
             if (Regex.Match(password, @"\d+", RegexOptions.ECMAScript).Success)
@@ -40,11 +40,8 @@ namespace PasswordStrengthChecker.BusinessLogic
             //If the password length greater than 12
             if (password.Length >= 12)
                 score++;
-            //Password doesnot contain any complex combinations
-            if(score==0)
-                return PasswordRank.VeryWeak;
 
-            return (PasswordRank)score;
+            return base.CheckStrength(password, score);
         }
     }
 }

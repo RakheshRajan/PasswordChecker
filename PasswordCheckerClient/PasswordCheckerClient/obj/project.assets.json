@@ -3924,11 +3924,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\PasswordCheckerClient\\PasswordCheckerClient\\PasswordCheckerClient.csproj",
+      "projectUniqueName": "G:\\Rakhesh\\Projects\\test\\PasswordChecker\\PasswordCheckerClient\\PasswordCheckerClient\\PasswordCheckerClient.csproj",
       "projectName": "PasswordCheckerClient",
-      "projectPath": "C:\\Users\\User\\source\\repos\\PasswordCheckerClient\\PasswordCheckerClient\\PasswordCheckerClient.csproj",
+      "projectPath": "G:\\Rakhesh\\Projects\\test\\PasswordChecker\\PasswordCheckerClient\\PasswordCheckerClient\\PasswordCheckerClient.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\PasswordCheckerClient\\PasswordCheckerClient\\obj\\",
+      "outputPath": "G:\\Rakhesh\\Projects\\test\\PasswordChecker\\PasswordCheckerClient\\PasswordCheckerClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

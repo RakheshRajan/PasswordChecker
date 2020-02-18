@@ -5,8 +5,10 @@ using System.Text;
 
 namespace PasswordStrengthChecker.BusinessLogic.Interface
 {
-    public interface IPasswordChecker
+    public interface IPasswordCheckerHandler
     {
-        PasswordRank CheckStrength(string password);
+        IPasswordCheckerHandler SetNext(IPasswordCheckerHandler handler);
+        int CheckStrength(string password, int score=0);
     }
 }
+
